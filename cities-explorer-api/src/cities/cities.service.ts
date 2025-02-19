@@ -15,13 +15,12 @@ export class CitiesService {
   private loadCities() {
     const data: string = readFileSync(
       join(__dirname, '../../data/cities.json'),
-
       'utf8',
     );
     const jsonData = JSON.parse(data) as { cities: CityRaw[] };
 
     this.cities = jsonData.cities.map((city: CityRaw, index: number) => ({
-      id: index,
+      id: index + 1,
       ...city,
     }));
   }
