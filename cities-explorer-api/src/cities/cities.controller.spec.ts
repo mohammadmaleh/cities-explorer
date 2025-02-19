@@ -3,6 +3,7 @@ import { CitiesController } from './cities.controller';
 import { CitiesService } from './cities.service';
 import { NotFoundException } from '@nestjs/common';
 import { citiesMock } from '../mocks/cities.mock';
+import { GetCitiesQueryDto } from './dto/get-cities-query.dto';
 
 describe('CitiesController', () => {
   let controller: CitiesController;
@@ -30,14 +31,21 @@ describe('CitiesController', () => {
     expect(controller).toBeDefined();
   });
 
-  describe('getCities', () => {
-    it('should return an array of cities', () => {
-      jest.spyOn(service, 'getCities').mockReturnValue(citiesMock);
+  it('should return all cities when no query is provided', () => {
+    const query: GetCitiesQueryDto = {};
 
-      expect(controller.getCities()).toEqual(citiesMock);
-    });
+    (service.getCities as jest.Mock).mockReturnValue(citiesMock);
+
+    expect(controller.getCities(query)).toEqual(citiesMock);
   });
 
+  it('should return filtered cities by continent', () => {
+    const query: GetCitiesQueryDto = { continent: 'europe' };
+    const filtered = [citiesMock[2]];
+    (service.getCities as jest.Mock).mockReturnValue(filtered);
+
+    expect(controller.getCities(query)).toEqual(filtered);
+  });
   describe('getCityById', () => {
     it('should return a single city when found', () => {
       jest.spyOn(service, 'getCityById').mockReturnValue(citiesMock[0]);

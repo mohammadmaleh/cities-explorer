@@ -1,8 +1,8 @@
-// src/cities/cities.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { City, CityRaw } from '../interfaces/city.interface';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { GetCitiesQueryDto } from './dto/get-cities-query.dto';
 
 @Injectable()
 export class CitiesService {
@@ -25,8 +25,23 @@ export class CitiesService {
     }));
   }
 
-  getCities(): City[] {
-    return this.cities;
+  getCities(query: GetCitiesQueryDto): City[] {
+    let filteredCities = [...this.cities];
+
+    if (query.continent) {
+      filteredCities = filteredCities.filter(
+        (city) =>
+          city.continent.toLowerCase() === query.continent?.toLowerCase(),
+      );
+    }
+
+    if (query.country) {
+      filteredCities = filteredCities.filter(
+        (city) => city.country.toLowerCase() === query.country?.toLowerCase(),
+      );
+    }
+
+    return filteredCities;
   }
 
   getCityById(id: number): City {
