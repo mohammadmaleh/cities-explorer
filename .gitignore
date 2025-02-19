@@ -1,0 +1,56 @@
+# compiled output
+cities-explorer-api/dist
+cities-explorer-api/node_modules
+cities-explorer-api/build
+
+# Logs
+cities-explorer-api/logs
+cities-explorer-api*.log
+cities-explorer-api/npm-debug.log*
+cities-explorer-api/pnpm-debug.log*
+cities-explorer-api/yarn-debug.log*
+cities-explorer-api/yarn-error.log*
+cities-explorer-api/lerna-debug.log*
+
+# OS
+cities-explorer-api/.DS_Store
+
+# Tests
+cities-explorer-api/coverage
+cities-explorer-api/.nyc_output
+
+# IDEs and editors
+cities-explorer-api/.idea
+cities-explorer-api/.project
+cities-explorer-api/.classpath
+cities-explorer-api/.c9/
+cities-explorer-api/*.launch
+cities-explorer-api/.settings/
+cities-explorer-api/*.sublime-workspace
+
+# IDE - VSCode
+cities-explorer-api/.vscode/*
+!cities-explorer-api/.vscode/settings.json
+!cities-explorer-api/.vscode/tasks.json
+!cities-explorer-api/.vscode/launch.json
+!cities-explorer-api/.vscode/extensions.json
+
+# dotenv environment variable files
+cities-explorer-api/.env
+cities-explorer-api/.env.development.local
+cities-explorer-api/.env.test.local
+cities-explorer-api/.env.production.local
+cities-explorer-api/.env.local
+
+# temp directory
+cities-explorer-api/.temp
+cities-explorer-api/.tmp
+
+# Runtime data
+pids
+cities-explorer-api/*.pid
+cities-explorer-api/*.seed
+cities-explorer-api/*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
