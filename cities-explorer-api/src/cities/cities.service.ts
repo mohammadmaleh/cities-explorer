@@ -53,7 +53,10 @@ export class CitiesService {
       });
     }
 
-    return filteredCities;
+    const start = (query.page - 1) * query.limit;
+    const end = start + query.limit;
+
+    return filteredCities.slice(start, end);
   }
 
   getCityById(id: number): City {
