@@ -8,4 +8,8 @@ export class GetCitiesQueryDto {
   @IsString()
   @IsOptional()
   continent?: string;
+
+  @IsString()
+  @IsOptional()
+  sortBy?: string;
 }

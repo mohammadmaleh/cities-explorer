@@ -46,6 +46,23 @@ describe('CitiesController', () => {
 
     expect(controller.getCities(query)).toEqual(filtered);
   });
+
+  it('should sort cities by name ascending', () => {
+    const query: GetCitiesQueryDto = { sortBy: 'name:asc' };
+    const sorted = [citiesMock[2], citiesMock[1], citiesMock[0]];
+    (service.getCities as jest.Mock).mockReturnValue(sorted);
+
+    expect(controller.getCities(query)).toEqual(sorted);
+  });
+
+  it('should sort cities by name descending', () => {
+    const query: GetCitiesQueryDto = { sortBy: 'name:desc' };
+    const sorted = [citiesMock[0], citiesMock[1], citiesMock[2]];
+    (service.getCities as jest.Mock).mockReturnValue(sorted);
+
+    expect(controller.getCities(query)).toEqual(sorted);
+  });
+
   describe('getCityById', () => {
     it('should return a single city when found', () => {
       jest.spyOn(service, 'getCityById').mockReturnValue(citiesMock[0]);

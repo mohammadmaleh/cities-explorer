@@ -53,6 +53,17 @@ describe('CitiesService', () => {
 
     expect(service.getCities(query)).toEqual([citiesMock[2]]);
   });
+  it('should sort cities by name ascending', () => {
+    const query: GetCitiesQueryDto = { sortBy: 'name:asc' };
+    const expected = [citiesMock[2], citiesMock[1], citiesMock[0]];
+    expect(service.getCities(query)).toEqual(expected);
+  });
+
+  it('should sort cities by name descending', () => {
+    const query: GetCitiesQueryDto = { sortBy: 'name:desc' };
+    const expected = [citiesMock[0], citiesMock[1], citiesMock[2]];
+    expect(service.getCities(query)).toEqual(expected);
+  });
 
   it('should return city by id', () => {
     expect(service.getCityById(1)).toEqual(citiesMock[0]);

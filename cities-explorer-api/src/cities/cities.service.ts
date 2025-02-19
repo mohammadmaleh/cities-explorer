@@ -41,6 +41,18 @@ export class CitiesService {
       );
     }
 
+    if (query.sortBy) {
+      const [sortField, sortOrder] = query.sortBy.split(':');
+      filteredCities.sort((a, b) => {
+        const aValue = a[sortField] as string;
+        const bValue = b[sortField] as string;
+
+        return sortOrder === 'asc'
+          ? aValue.localeCompare(bValue)
+          : bValue.localeCompare(aValue);
+      });
+    }
+
     return filteredCities;
   }
 
