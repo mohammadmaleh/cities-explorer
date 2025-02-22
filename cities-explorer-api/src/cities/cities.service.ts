@@ -3,6 +3,7 @@ import { City, CityRaw } from '../interfaces/city.interface';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { GetCitiesQueryDto } from './dto/get-cities-query.dto';
+import { PaginatedResponse } from 'src/interfaces/common.interface';
 
 @Injectable()
 export class CitiesService {
@@ -25,7 +26,7 @@ export class CitiesService {
     }));
   }
 
-  getCities(query: GetCitiesQueryDto): City[] {
+  getCities(query: GetCitiesQueryDto): PaginatedResponse<City> {
     let filteredCities = [...this.cities];
 
     if (query.continent) {
@@ -53,10 +54,16 @@ export class CitiesService {
       });
     }
 
+    const total = filteredCities.length;
     const start = (query.page - 1) * query.limit;
     const end = start + query.limit;
 
-    return filteredCities.slice(start, end);
+    return {
+      data: filteredCities.slice(start, end),
+      total,
+      page: query.page,
+      limit: query.limit,
+    };
   }
 
   getCityById(id: number): City {
