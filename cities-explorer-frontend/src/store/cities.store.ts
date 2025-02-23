@@ -1,3 +1,4 @@
+import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { CitiesState, CityFilters } from '../app/models/city.interface';
 import { CitiesService } from '../app/services/api/cities.service';
@@ -12,7 +13,7 @@ const initialState: CitiesState = {
   loading: false,
   error: null,
   filters: {
-    country: undefined,
+    searchTerm: undefined,
     continent: undefined,
     sortBy: undefined,
   },
@@ -20,9 +21,22 @@ const initialState: CitiesState = {
 
 export const CitiesStore = signalStore(
   { providedIn: 'root' },
+  withDevtools('cities'),
   withState(initialState),
   withMethods((store, citiesService = inject(CitiesService)) => ({
-    loadCities(filter: CityFilters) {
+    setFilter(filter: CityFilters) {
+      patchState(store, {
+        filters: filter,
+      });
+      this.loadCities();
+    },
+
+    setPage(page: number) {
+      patchState(store, { page });
+      this.loadCities();
+    },
+
+    loadCities() {
       patchState(store, {
         loading: true,
         error: null,
@@ -31,8 +45,7 @@ export const CitiesStore = signalStore(
       citiesService
         .getCities({
           page: store.page().toString(),
-          limit: store.limit().toString(),
-          filters: filter,
+          filters: store.filters(),
         })
         .pipe(finalize(() => patchState(store, { loading: false })))
         .subscribe({
@@ -40,6 +53,8 @@ export const CitiesStore = signalStore(
             patchState(store, {
               cities: response.data ?? [],
               total: response.total,
+              limit: response.limit,
+              page: response.page,
             });
           },
           error: (error: Error) => {

@@ -14,8 +14,14 @@ export interface City {
 }
 
 export interface CityFilters {
-  country?: string;
-  continent?: string;
+  searchTerm?: string;
+  continent?:
+    | 'africa'
+    | 'asia'
+    | 'europe'
+    | 'north-america'
+    | 'oceania'
+    | 'south-america';
   sortBy?: {
     field: string;
     order: 'asc' | 'desc';

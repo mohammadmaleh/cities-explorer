@@ -61,7 +61,7 @@
       "longitude": "139.839478",
       "population": "13960000",
       "founded": "1603",
-      "landmarks": ["Meji Shrine", "Asakusa", "Tokyo Skytree"]
+      "landmarks": ["Meiji Shrine", "Asakusa", "Tokyo Skytree"]
     },
     {
       "name": "Lagos",
@@ -102,7 +102,252 @@
       "longitude": "11.576124",
       "population": "1472000",
       "founded": "1158",
-      "landmarks": ["Bavaria statue", "Marienplatz", "ottonova office"]
+      "landmarks": ["Bavaria statue", "Marienplatz", "Nymphenburg Palace"]
+    },
+    {
+      "name": "London",
+      "name_native": "London",
+      "country": "United Kingdom",
+      "continent": "Europe",
+      "latitude": "51.507222",
+      "longitude": "-0.1275",
+      "population": "8982000",
+      "founded": "43 AD",
+      "landmarks": ["Big Ben", "Tower of London", "Buckingham Palace"]
+    },
+    {
+      "name": "Cairo",
+      "name_native": "القاهرة",
+      "country": "Egypt",
+      "continent": "Africa",
+      "latitude": "30.0444",
+      "longitude": "31.2357",
+      "population": "20480000",
+      "founded": "969 AD",
+      "landmarks": ["Pyramids of Giza", "Cairo Citadel", "Khan el-Khalili"]
+    },
+
+    {
+      "name": "Paris",
+      "name_native": "Paris",
+      "country": "France",
+      "continent": "Europe",
+      "latitude": "48.856613",
+      "longitude": "2.352222",
+      "population": "2148000",
+      "founded": "3rd century BC",
+      "landmarks": ["Eiffel Tower", "Louvre Museum", "Notre-Dame Cathedral"]
+    },
+    {
+      "name": "Beijing",
+      "name_native": "北京",
+      "country": "China",
+      "continent": "Asia",
+      "latitude": "39.904202",
+      "longitude": "116.407394",
+      "population": "21540000",
+      "founded": "1045 BC",
+      "landmarks": ["Great Wall of China", "Forbidden City", "Temple of Heaven"]
+    },
+    {
+      "name": "Los Angeles",
+      "name_native": "Los Angeles",
+      "country": "USA",
+      "continent": "North America",
+      "latitude": "34.052235",
+      "longitude": "-118.243683",
+      "population": "3980000",
+      "founded": "1781",
+      "landmarks": [
+        "Hollywood Sign",
+        "Griffith Observatory",
+        "Santa Monica Pier"
+      ]
+    },
+    {
+      "name": "Cape Town",
+      "name_native": "Kaapstad",
+      "country": "South Africa",
+      "continent": "Africa",
+      "latitude": "-33.924870",
+      "longitude": "18.424055",
+      "population": "433688",
+      "founded": "1652",
+      "landmarks": [
+        "Table Mountain",
+        "Robben Island",
+        "Victoria & Alfred Waterfront"
+      ]
+    },
+    {
+      "name": "Buenos Aires",
+      "name_native": "Buenos Aires",
+      "country": "Argentina",
+      "continent": "South America",
+      "latitude": "-34.603722",
+      "longitude": "-58.381592",
+      "population": "3075646",
+      "founded": "1536",
+      "landmarks": ["Obelisco", "La Boca", "Teatro Colón"]
+    },
+    {
+      "name": "Toronto",
+      "name_native": "Toronto",
+      "country": "Canada",
+      "continent": "North America",
+      "latitude": "43.651070",
+      "longitude": "-79.347015",
+      "population": "2930000",
+      "founded": "1793",
+      "landmarks": ["CN Tower", "Royal Ontario Museum", "Distillery District"]
+    },
+    {
+      "name": "Seoul",
+      "name_native": "서울",
+      "country": "South Korea",
+      "continent": "Asia",
+      "latitude": "37.566536",
+      "longitude": "126.977966",
+      "population": "9733509",
+      "founded": "18 BC",
+      "landmarks": [
+        "Gyeongbokgung Palace",
+        "N Seoul Tower",
+        "Bukchon Hanok Village"
+      ]
+    },
+    {
+      "name": "Cairo",
+      "name_native": "القاهرة",
+      "country": "Egypt",
+      "continent": "Africa",
+      "latitude": "30.044420",
+      "longitude": "31.235712",
+      "population": "9500000",
+      "founded": "969 AD",
+      "landmarks": ["Pyramids of Giza", "Cairo Citadel", "Khan El Khalili"]
+    },
+    {
+      "name": "Dubai",
+      "name_native": "دبي",
+      "country": "UAE",
+      "continent": "Asia",
+      "latitude": "25.276987",
+      "longitude": "55.296249",
+      "population": "3332000",
+      "founded": "1833",
+      "landmarks": ["Burj Khalifa", "Palm Jumeirah", "Dubai Mall"]
+    },
+    {
+      "name": "Mexico City",
+      "name_native": "Ciudad de México",
+      "country": "Mexico",
+      "continent": "North America",
+      "latitude": "19.432608",
+      "longitude": "-99.133209",
+      "population": "9209944",
+      "founded": "1325",
+      "landmarks": ["Zócalo", "Chapultepec Castle", "Frida Kahlo Museum"]
+    },
+    {
+      "name": "Istanbul",
+      "name_native": "İstanbul",
+      "country": "Turkey",
+      "continent": "Europe",
+      "latitude": "41.008240",
+      "longitude": "28.978359",
+      "population": "15460000",
+      "founded": "660 BC",
+      "landmarks": ["Hagia Sophia", "Blue Mosque", "Grand Bazaar"]
+    },
+    {
+      "name": "Jakarta",
+      "name_native": "Jakarta",
+      "country": "Indonesia",
+      "continent": "Asia",
+      "latitude": "-6.208763",
+      "longitude": "106.845599",
+      "population": "10800000",
+      "founded": "1619",
+      "landmarks": [
+        "National Monument",
+        "Istiqlal Mosque",
+        "Taman Mini Indonesia"
+      ]
+    },
+    {
+      "name": "Bangkok",
+      "name_native": "กรุงเทพมหานคร",
+      "country": "Thailand",
+      "continent": "Asia",
+      "latitude": "13.756331",
+      "longitude": "100.501762",
+      "population": "10539000",
+      "founded": "1782",
+      "landmarks": ["Grand Palace", "Wat Arun", "Chatuchak Market"]
+    },
+    {
+      "name": "Nairobi",
+      "name_native": "Nairobi",
+      "country": "Kenya",
+      "continent": "Africa",
+      "latitude": "-1.286389",
+      "longitude": "36.817223",
+      "population": "4500000",
+      "founded": "1899",
+      "landmarks": [
+        "Nairobi National Park",
+        "Karen Blixen Museum",
+        "Giraffe Centre"
+      ]
+    },
+    {
+      "name": "Athens",
+      "name_native": "Αθήνα",
+      "country": "Greece",
+      "continent": "Europe",
+      "latitude": "37.983810",
+      "longitude": "23.727539",
+      "population": "664046",
+      "founded": "3000 BC",
+      "landmarks": ["Acropolis", "Parthenon", "Temple of Olympian Zeus"]
+    },
+    {
+      "name": "Lisbon",
+      "name_native": "Lisboa",
+      "country": "Portugal",
+      "continent": "Europe",
+      "latitude": "38.716892",
+      "longitude": "-9.139972",
+      "population": "504718",
+      "founded": "1200 BC",
+      "landmarks": ["Belém Tower", "Jerónimos Monastery", "Alfama District"]
+    },
+    {
+      "name": "Rio de Janeiro",
+      "name_native": "Rio de Janeiro",
+      "country": "Brazil",
+      "continent": "South America",
+      "latitude": "-22.906847",
+      "longitude": "-43.172897",
+      "population": "6748000",
+      "founded": "1565",
+      "landmarks": [
+        "Christ the Redeemer",
+        "Sugarloaf Mountain",
+        "Copacabana Beach"
+      ]
+    },
+    {
+      "name": "Stockholm",
+      "name_native": "Stockholm",
+      "country": "Sweden",
+      "continent": "Europe",
+      "latitude": "59.329323",
+      "longitude": "18.068581",
+      "population": "975551",
+      "founded": "1252",
+      "landmarks": ["Vasa Museum", "Gamla Stan", "Drottningholm Palace"]
     }
   ]
 }

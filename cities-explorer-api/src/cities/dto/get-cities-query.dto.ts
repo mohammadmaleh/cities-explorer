@@ -4,7 +4,7 @@ import { IsNumber, IsOptional, IsString } from 'class-validator';
 export class GetCitiesQueryDto {
   @IsString()
   @IsOptional()
-  country?: string;
+  searchTerm?: string;
 
   @IsString()
   @IsOptional()
@@ -16,11 +16,5 @@ export class GetCitiesQueryDto {
 
   @Type(() => Number)
   @IsNumber()
-  @IsOptional()
   page: number = 1;
-
-  @Type(() => Number)
-  @IsNumber()
-  @IsOptional()
-  limit: number = 10;
 }

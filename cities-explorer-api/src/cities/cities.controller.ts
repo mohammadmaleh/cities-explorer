@@ -1,4 +1,11 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Query,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { CitiesService } from './cities.service';
 import { City } from '../interfaces/city.interface';
 import { GetCitiesQueryDto } from './dto/get-cities-query.dto';
@@ -9,6 +16,7 @@ export class CitiesController {
   constructor(private readonly citiesService: CitiesService) {}
 
   @Get()
+  @UsePipes(new ValidationPipe({ transform: true }))
   getCities(@Query() query: GetCitiesQueryDto): PaginatedResponse<City> {
     return this.citiesService.getCities(query);
   }

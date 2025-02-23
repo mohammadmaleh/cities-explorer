@@ -8,7 +8,7 @@ import { PaginatedResponse } from 'src/interfaces/common.interface';
 @Injectable()
 export class CitiesService {
   private cities: City[];
-
+  private limit = 10;
   constructor() {
     this.loadCities();
   }
@@ -36,14 +36,19 @@ export class CitiesService {
       );
     }
 
-    if (query.country) {
+    if (query.searchTerm) {
+      const searchLower = query.searchTerm.toLowerCase();
+
       filteredCities = filteredCities.filter(
-        (city) => city.country.toLowerCase() === query.country?.toLowerCase(),
+        (city) =>
+          city.name.toLowerCase().includes(searchLower) ||
+          city.country.toLowerCase().includes(searchLower),
       );
     }
 
     if (query.sortBy) {
       const [sortField, sortOrder] = query.sortBy.split(':');
+
       filteredCities.sort((a, b) => {
         const aValue = a[sortField] as string;
         const bValue = b[sortField] as string;
@@ -55,14 +60,14 @@ export class CitiesService {
     }
 
     const total = filteredCities.length;
-    const start = (query.page - 1) * query.limit;
-    const end = start + query.limit;
+    const start = (query.page - 1) * this.limit;
+    const end = start + this.limit;
 
     return {
-      data: filteredCities.slice(start, end),
-      total,
-      page: query.page,
-      limit: query.limit,
+      data: filteredCities.slice(start, end) || [],
+      total: total || 0,
+      page: query.page || 1,
+      limit: this.limit,
     };
   }
 
