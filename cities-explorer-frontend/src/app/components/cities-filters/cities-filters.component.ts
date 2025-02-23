@@ -19,13 +19,13 @@ import { CitiesStore } from '../../../store/cities.store';
         <input
           formControlName="searchTerm"
           placeholder="Search city or country"
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
         />
       </div>
       <div>
         <select
           formControlName="continent"
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
         >
           <option value="">All Continents</option>
           <option
@@ -39,7 +39,7 @@ import { CitiesStore } from '../../../store/cities.store';
       <div>
         <select
           formControlName="sortBy"
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
         >
           <option value="">Sort By</option>
           <option

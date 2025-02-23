@@ -76,4 +76,31 @@ export class CitiesService {
     if (!city) throw new NotFoundException('City not found');
     return city;
   }
+
+  getRandomCityForGame() {
+    const correctCity =
+      this.cities[Math.floor(Math.random() * this.cities.length)];
+    const options = [correctCity.name];
+
+    while (options.length < 3) {
+      const randomCity =
+        this.cities[Math.floor(Math.random() * this.cities.length)];
+      if (!options.includes(randomCity.name)) {
+        options.push(randomCity.name);
+      }
+    }
+
+    options.sort(() => Math.random() - 0.5);
+
+    return {
+      clues: {
+        continent: correctCity.continent,
+        population: correctCity.population,
+        founded: correctCity.founded,
+        landmarks: correctCity.landmarks?.[0] || 'No famous landmarks',
+      },
+      options: options,
+      answer: correctCity.name,
+    };
+  }
 }

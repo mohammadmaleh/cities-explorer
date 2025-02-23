@@ -21,6 +21,11 @@ export class CitiesController {
     return this.citiesService.getCities(query);
   }
 
+  @Get('/city-guesser')
+  getRandomCityGame() {
+    return this.citiesService.getRandomCityForGame();
+  }
+
   @Get(':id')
   getCityById(@Param('id') id: string): City {
     return this.citiesService.getCityById(Number(id));

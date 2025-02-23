@@ -28,10 +28,24 @@ export interface CityFilters {
   };
 }
 
+export interface CityGuesserQuestion {
+  clues: {
+    continent: string;
+    population: string;
+    founded: string;
+    landmarks: string[];
+  };
+  options: string[];
+  answer: string;
+}
+
 export interface CitiesState extends Pagination {
   cities: City[];
   selectedCity: City | null;
   loading: boolean;
   error: string | null;
   filters: CityFilters;
+  cityGuesserQuestion: CityGuesserQuestion | null;
+  cityGuesserQuestionLoading: boolean;
+  cityGuesserQuestionError: string | undefined;
 }

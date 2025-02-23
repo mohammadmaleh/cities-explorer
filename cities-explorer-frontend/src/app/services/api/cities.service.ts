@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { City, CityFilters } from '../../models/city.interface';
+import {
+  City,
+  CityFilters,
+  CityGuesserQuestion,
+} from '../../models/city.interface';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PaginatedResponse } from '../../models/common.interface';
 import { Observable } from 'rxjs';
@@ -29,5 +33,11 @@ export class CitiesService {
   }
   getCity(id: number): Observable<City> {
     return this.http.get<City>(`http://localhost:3000/cities/${id}`);
+  }
+
+  getGuessCityQuestion(): Observable<CityGuesserQuestion> {
+    return this.http.get<CityGuesserQuestion>(
+      'http://localhost:3000/cities/city-guesser'
+    );
   }
 }

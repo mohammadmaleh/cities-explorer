@@ -18,6 +18,9 @@ const initialState: CitiesState = {
     continent: undefined,
     sortBy: undefined,
   },
+  cityGuesserQuestion: null,
+  cityGuesserQuestionLoading: false,
+  cityGuesserQuestionError: undefined,
 };
 
 export const CitiesStore = signalStore(
@@ -98,6 +101,31 @@ export const CitiesStore = signalStore(
         selectedCity: null,
         error: null,
       });
+    },
+    loadCityGuesserQuestion() {
+      patchState(store, {
+        cityGuesserQuestionLoading: true,
+        cityGuesserQuestionError: undefined,
+      });
+      citiesService
+        .getGuessCityQuestion()
+        .pipe(
+          finalize(() =>
+            patchState(store, { cityGuesserQuestionLoading: false })
+          )
+        )
+        .subscribe({
+          next: (question) => {
+            console.log({ question });
+
+            return patchState(store, { cityGuesserQuestion: question });
+          },
+          error: (error) =>
+            patchState(store, {
+              cityGuesserQuestionError:
+                error.message || 'Failed to load city details',
+            }),
+        });
     },
   }))
 );
