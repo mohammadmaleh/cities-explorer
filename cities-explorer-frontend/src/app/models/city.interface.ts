@@ -30,6 +30,7 @@ export interface CityFilters {
 
 export interface CitiesState extends Pagination {
   cities: City[];
+  selectedCity: City | null;
   loading: boolean;
   error: string | null;
   filters: CityFilters;

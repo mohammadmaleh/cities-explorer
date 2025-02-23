@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { City, CityFilters } from '../../models/city.interface';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PaginatedResponse } from '../../models/common.interface';
+import { Observable } from 'rxjs';
+
 @Injectable({ providedIn: 'root' })
 export class CitiesService {
   constructor(private http: HttpClient) {}
@@ -24,5 +26,8 @@ export class CitiesService {
         params,
       }
     );
+  }
+  getCity(id: number): Observable<City> {
+    return this.http.get<City>(`http://localhost:3000/cities/${id}`);
   }
 }

@@ -7,6 +7,7 @@ import { finalize } from 'rxjs';
 
 const initialState: CitiesState = {
   cities: [],
+  selectedCity: null,
   page: 1,
   limit: 10,
   total: 0,
@@ -63,6 +64,40 @@ export const CitiesStore = signalStore(
             });
           },
         });
+    },
+
+    loadCity(id: number) {
+      const existingCity = store.cities().find((c) => c.id === id);
+      if (existingCity) {
+        patchState(store, {
+          selectedCity: existingCity,
+          error: null,
+        });
+        return;
+      }
+
+      patchState(store, {
+        loading: true,
+        error: null,
+      });
+
+      citiesService
+        .getCity(id)
+        .pipe(finalize(() => patchState(store, { loading: false })))
+        .subscribe({
+          next: (city) => patchState(store, { selectedCity: city }),
+          error: (error) =>
+            patchState(store, {
+              error: error.message || 'Failed to load city details',
+            }),
+        });
+    },
+
+    clearSelectedCity() {
+      patchState(store, {
+        selectedCity: null,
+        error: null,
+      });
     },
   }))
 );

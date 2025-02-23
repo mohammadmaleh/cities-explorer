@@ -5,19 +5,15 @@ import { City } from '../../models/city.interface';
 @Component({
   selector: 'app-city-card',
   standalone: true,
-  imports: [RouterLink],
   template: ` <article
     class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
   >
     <div class="p-6 space-y-4">
       <h3 class="text-2xl font-bold text-gray-900">
-        <a
-          [routerLink]="['/cities', city.id]"
-          class="hover:text-blue-600 transition-colors"
-        >
-          {{ city.name }}
+        <div class=" cursor-pointer">
+          {{ city.name }} ({{ city.name_native }})
           <span class="text-lg text-gray-600">• {{ city.country }}</span>
-        </a>
+        </div>
       </h3>
 
       <div class="flex items-center space-x-2 text-gray-500">
