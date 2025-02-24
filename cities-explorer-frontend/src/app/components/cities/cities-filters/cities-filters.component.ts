@@ -19,35 +19,33 @@ import { CitiesStore } from '../../../store/cities.store';
         <input
           formControlName="searchTerm"
           placeholder="Search city or country"
-          class="w-full px-4 py-3  border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
+          class="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
         />
       </div>
       <div>
         <select
           formControlName="continent"
-          class="w-full px-4 py-3  border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+          class="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
         >
           <option value="">All Continents</option>
-          <option
-            *ngFor="let continent of continents"
-            [value]="continent.value"
-          >
+          @for (continent of continents; track continent.value) {
+          <option [value]="continent.value">
             {{ continent.display }}
           </option>
+          }
         </select>
       </div>
       <div>
         <select
           formControlName="sortBy"
-          class="w-full px-4 py-3 l border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+          class="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
         >
           <option value="">Sort By</option>
-          <option
-            *ngFor="let option of citiesSortOptions"
-            [value]="option.value"
-          >
+          @for (option of citiesSortOptions; track option) {
+          <option [value]="option.value">
             {{ option.display }}
           </option>
+          }
         </select>
       </div>
     </div>

@@ -20,73 +20,67 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   template: `<div class="w-full">
     <app-back-button></app-back-button>
-    <ng-container *ngIf="loading(); else loadedDetails">
-      <app-loading></app-loading>
-    </ng-container>
-    <ng-template #loadedDetails>
-      <ng-container *ngIf="error(); else detailsContent">
-        <app-error-feedback [error]="error() || ''"></app-error-feedback>
-      </ng-container>
-      <ng-template #detailsContent>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div class="space-y-8">
-            <div class="space-y-4">
-              <h1 class="text-5xl font-bold text-gray-900">
-                {{ city()?.name }}
-              </h1>
-              <div class="flex items-center space-x-2 text-2xl text-gray-600">
-                <span>{{ city()?.country }}</span>
-                <span class="text-gray-400">•</span>
-                <span>{{ city()?.continent }}</span>
-              </div>
-            </div>
 
-            <div class="grid grid-cols-2 gap-4">
-              <div class="p-6 bg-blue-50 ">
-                <div class="text-sm text-blue-600">Population</div>
-                <div class="text-3xl font-bold text-gray-900">
-                  {{ city()?.population }}
-                </div>
-              </div>
-              <div class="p-6 bg-blue-50 ">
-                <div class="text-sm text-blue-600">Founded</div>
-                <div class="text-3xl font-bold text-gray-900">
-                  {{ city()?.founded }}
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h2 class="text-3xl font-bold text-gray-900 mb-6 ">Landmarks</h2>
-              <div
-                *ngFor="let landmark of city()?.landmarks"
-                class="space-y-4 py-2"
-              >
-                <div
-                  class="flex items-center p-4 bg-white  shadow-sm border border-gray-100"
-                >
-                  <span class="text-2xl mr-3">📍</span>
-                  <span class="text-lg text-gray-700">{{ landmark }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="h-[600px]  overflow-hidden shadow-xl border border-gray-200"
-          >
-            <google-map
-              [center]="{ lat: lat(), lng: lng() }"
-              [zoom]="12"
-              width="100%"
-              height="100%"
-            >
-              <map-marker [position]="{ lat: lat(), lng: lng() }"></map-marker>
-            </google-map>
+    @if (loading()) {
+    <app-loading></app-loading>
+    } @else { @if (error()) {
+    <app-error-feedback [error]="error() || ''"></app-error-feedback>
+    } @else {
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <h1 class="text-5xl font-bold text-gray-900">
+            {{ city()?.name }}
+          </h1>
+          <div class="flex items-center space-x-2 text-2xl text-gray-600">
+            <span>{{ city()?.country }}</span>
+            <span class="text-gray-400">•</span>
+            <span>{{ city()?.continent }}</span>
           </div>
         </div>
-      </ng-template>
-    </ng-template>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-6 bg-blue-50">
+            <div class="text-sm text-blue-600">Population</div>
+            <div class="text-3xl font-bold text-gray-900">
+              {{ city()?.population }}
+            </div>
+          </div>
+          <div class="p-6 bg-blue-50">
+            <div class="text-sm text-blue-600">Founded</div>
+            <div class="text-3xl font-bold text-gray-900">
+              {{ city()?.founded }}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Landmarks</h2>
+          @for (landmark of city()?.landmarks ; track landmark) {
+          <div class="space-y-4 py-2">
+            <div
+              class="flex items-center p-4 bg-white shadow-sm border border-gray-100"
+            >
+              <span class="text-2xl mr-3">📍</span>
+              <span class="text-lg text-gray-700">{{ landmark }}</span>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      <div class="h-[600px] overflow-hidden shadow-xl border border-gray-200">
+        <google-map
+          [center]="{ lat: lat(), lng: lng() }"
+          [zoom]="12"
+          width="100%"
+          height="100%"
+        >
+          <map-marker [position]="{ lat: lat(), lng: lng() }"></map-marker>
+        </google-map>
+      </div>
+    </div>
+    } }
   </div> `,
 })
 export class CityDetailsComponent {

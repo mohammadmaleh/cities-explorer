@@ -18,35 +18,29 @@ import { CommonModule } from '@angular/common';
     ErrorFeedbackComponent,
     CommonModule,
   ],
-  template: `<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+  template: `<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <app-cities-filters></app-cities-filters>
 
-    <ng-container *ngIf="store.loading(); else loadedContent">
-      <app-loading></app-loading>
-    </ng-container>
-
-    <ng-template #loadedContent>
-      <ng-container *ngIf="store.error(); else cityGrid">
-        <app-error-feedback [error]="store.error() || ''"></app-error-feedback>
-      </ng-container>
-
-      <ng-template #cityGrid>
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-h-[60vh] overflow-auto"
-        >
-          <ng-container *ngFor="let city of store.cities()">
-            <app-city-card
-              [city]="city"
-              (click)="handleCityClick(city.id)"
-            ></app-city-card>
-          </ng-container>
-        </div>
-        <div class="mt-12">
-          <app-pagination></app-pagination>
-        </div>
-      </ng-template>
-    </ng-template>
-  </div> `,
+    @if (store.loading()) {
+    <app-loading></app-loading>
+    } @else { @if (store.error()) {
+    <app-error-feedback [error]="store.error() || ''"></app-error-feedback>
+    } @else {
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-h-[60vh] overflow-auto"
+    >
+      @for (city of store.cities(); track city.id) {
+      <app-city-card
+        [city]="city"
+        (click)="handleCityClick(city.id)"
+      ></app-city-card>
+      }
+    </div>
+    <div class="mt-12">
+      <app-pagination></app-pagination>
+    </div>
+    } }
+  </div>`,
 })
 export class CitiesListComponent {
   store = inject(CitiesStore);

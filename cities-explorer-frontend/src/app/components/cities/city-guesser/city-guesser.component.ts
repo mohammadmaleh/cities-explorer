@@ -16,6 +16,7 @@ import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedba
   ],
   template: `<div class="max-w-2xl mx-auto space-y-8">
     <app-back-button></app-back-button>
+
     <h1
       class="text-3xl font-bold text-gray-500 text-center"
       data-testid="title"
@@ -26,95 +27,85 @@ import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedba
     <div class="text-center animate-fade-in">
       <span class="inline-block px-4 py-2 bg-white rounded-full shadow-md">
         🔥 Current Streak:
-        <span class="font-bold text-blue-600" data-testid="streak">{{
-          streak
-        }}</span>
+        <span class="font-bold text-blue-600" data-testid="streak">
+          {{ streak }}
+        </span>
       </span>
     </div>
 
-    <ng-container *ngIf="loading(); else guesserContent">
-      <app-loading></app-loading>
-    </ng-container>
+    @if (loading()) {
+    <app-loading></app-loading>
+    } @else { @if (error()) {
+    <app-error-feedback [error]="error() || ''" />
+    } @else {
+    <h2 class="text-3xl font-bold text-gray-500 text-center">
+      Guess the city:
+    </h2>
 
-    <ng-template #guesserContent>
-      <ng-container *ngIf="error(); else questionContent">
-        <app-error-feedback [error]="error() || ''" />
-      </ng-container>
-      <ng-template #questionContent>
-        <h2 class="text-3xl font-bold text-gray-500 text-center">
-          Guess the city:
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-6 bg-white  shadow-sm space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="text-blue-500">🌍</span>
-              <h3 class="font-semibold text-gray-700">Continent</h3>
-            </div>
-            <p
-              class="text-lg font-medium text-gray-900"
-              data-testid="continent"
-            >
-              {{ cityGuesserQuestion()?.clues?.continent }}
-            </p>
-          </div>
-
-          <div class="p-6 bg-white  shadow-sm space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="text-blue-500">👥</span>
-              <h3 class="font-semibold text-gray-700">Population</h3>
-            </div>
-            <p
-              class="text-lg font-medium text-gray-900"
-              data-testid="population"
-            >
-              {{ cityGuesserQuestion()?.clues?.population | number }}
-              inhabitants
-            </p>
-          </div>
-
-          <div class="p-6 bg-white  shadow-sm space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="text-blue-500">🏛️</span>
-              <h3 class="font-semibold text-gray-700">Founded</h3>
-            </div>
-            <p class="text-lg font-medium text-gray-900" data-testid="founded">
-              {{ cityGuesserQuestion()?.clues?.founded || 'Unknown' }}
-            </p>
-          </div>
-
-          <div class="p-6 bg-white  shadow-sm space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="text-blue-500">🏙️</span>
-              <h3 class="font-semibold text-gray-700">Landmark</h3>
-            </div>
-            <p class="text-lg font-medium text-gray-900" data-testid="landmark">
-              {{ cityGuesserQuestion()?.clues?.landmark }}
-            </p>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-6 bg-white shadow-sm space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-blue-500">🌍</span>
+          <h3 class="font-semibold text-gray-700">Continent</h3>
         </div>
+        <p class="text-lg font-medium text-gray-900" data-testid="continent">
+          {{ cityGuesserQuestion()?.clues?.continent }}
+        </p>
+      </div>
 
-        <div class="grid grid-cols-3 gap-3 ">
-          <button
-            data-testid
-            *ngFor="let option of cityGuesserQuestion()?.options"
-            [attr.data-testid]="'city-option-' + option"
-            (click)="answerCityGuesserQuestion(option)"
-            [ngClass]="{
-              'bg-green-200 border-green-400 text-grey-900':
-                showAnswer && option === cityGuesserQuestion()?.answer,
-              'bg-red-200 border-red-400 text-grey-900':
-                showAnswer && option !== cityGuesserQuestion()?.answer,
-              'bg-blue-400 border-blue-400 hover:bg-blue-500 text-white':
-                !showAnswer
-            }"
-            class="p-4 text-center rounded-xl  transition-all duration-200 shadow-sm hover:shadow-md border-2 border-gray-100 cursor-pointer"
-            [disabled]="!cityGuesserQuestion"
-          >
-            <span class="text-lg font-medium ">{{ option }}</span>
-          </button>
+      <div class="p-6 bg-white shadow-sm space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-blue-500">👥</span>
+          <h3 class="font-semibold text-gray-700">Population</h3>
         </div>
-      </ng-template>
-    </ng-template>
+        <p class="text-lg font-medium text-gray-900" data-testid="population">
+          {{ cityGuesserQuestion()?.clues?.population | number }} inhabitants
+        </p>
+      </div>
+
+      <div class="p-6 bg-white shadow-sm space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-blue-500">🏛️</span>
+          <h3 class="font-semibold text-gray-700">Founded</h3>
+        </div>
+        <p class="text-lg font-medium text-gray-900" data-testid="founded">
+          {{ cityGuesserQuestion()?.clues?.founded || 'Unknown' }}
+        </p>
+      </div>
+
+      <div class="p-6 bg-white shadow-sm space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-blue-500">🏙️</span>
+          <h3 class="font-semibold text-gray-700">Landmark</h3>
+        </div>
+        <p class="text-lg font-medium text-gray-900" data-testid="landmark">
+          {{ cityGuesserQuestion()?.clues?.landmark }}
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3">
+      @for (option of cityGuesserQuestion()?.options; track option) {
+      <button
+        data-testid
+        [attr.data-testid]="'city-option-' + option"
+        (click)="answerCityGuesserQuestion(option)"
+        [ngClass]="{
+          'bg-green-200 border-green-400 text-grey-900':
+            showAnswer && option === cityGuesserQuestion()?.answer,
+          'bg-red-200 border-red-400 text-grey-900':
+            showAnswer && option !== cityGuesserQuestion()?.answer,
+          'bg-blue-400 border-blue-400 hover:bg-blue-500 text-white':
+            !showAnswer
+        }"
+        class="p-4 text-center rounded-xl transition-all duration-200 shadow-sm hover:shadow-md border-2 border-gray-100 cursor-pointer"
+        [disabled]="!cityGuesserQuestion"
+      >
+        <span class="text-lg font-medium">{{ option }}</span>
+      </button>
+      }
+    </div>
+    } }
   </div> `,
 })
 export class CityGuesserComponent implements OnInit {
