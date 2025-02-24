@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { BackButtonComponent } from './back-button.component';
 import { Router } from '@angular/router';
 
-describe('BackButtonComponent', () => {
+describe('<back-button />', () => {
   let component: BackButtonComponent;
   let fixture: ComponentFixture<BackButtonComponent>;
   let router: Router;
