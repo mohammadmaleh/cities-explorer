@@ -13,10 +13,15 @@ import { CitiesStore } from '../../../store/cities.store';
   selector: 'app-cities-filters',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
-  template: `<form [formGroup]="form" class="mb-6 space-y-6">
+  template: `<form
+    data-testid="cities-filters"
+    [formGroup]="form"
+    class="mb-6 space-y-6"
+  >
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <input
+          data-testid="search-input"
           formControlName="searchTerm"
           placeholder="Search city or country"
           class="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
@@ -24,6 +29,7 @@ import { CitiesStore } from '../../../store/cities.store';
       </div>
       <div>
         <select
+          data-testid="continent-select"
           formControlName="continent"
           class="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
         >
@@ -37,6 +43,7 @@ import { CitiesStore } from '../../../store/cities.store';
       </div>
       <div>
         <select
+          data-testid="sort-select"
           formControlName="sortBy"
           class="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
         >

@@ -4,7 +4,7 @@ import { CitiesStore } from '../../../store/cities.store';
 import { Router } from '@angular/router';
 import { cityMock } from '../../mocks/cities.mocks';
 
-describe('CitiesListComponent', () => {
+describe('<cities-list />', () => {
   let component: CitiesListComponent;
   let fixture: ComponentFixture<CitiesListComponent>;
   let mockStore: any;
@@ -78,6 +78,13 @@ describe('CitiesListComponent', () => {
       spyOn(mockStore, 'error').and.returnValue(null);
       spyOn(mockStore, 'cities').and.returnValue(mockCities);
       fixture.detectChanges();
+    });
+
+    it('should display city filters component', () => {
+      const filtersEl = fixture.nativeElement.querySelector(
+        '[data-testid="cities-filters"]'
+      );
+      expect(filtersEl).toBeTruthy();
     });
 
     it('should display a city card for each city', () => {
