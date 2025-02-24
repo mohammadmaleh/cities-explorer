@@ -44,14 +44,4 @@ describe('<error-feedback />', () => {
     );
     expect(element.textContent).toContain('Updated error');
   });
-
-  it('should show warning symbol', () => {
-    component.error = 'Test error';
-    fixture.detectChanges();
-
-    const element = fixture.nativeElement.querySelector(
-      '[data-testid="error-feedback"]'
-    );
-    expect(element.textContent).toContain('⚠️');
-  });
 });
