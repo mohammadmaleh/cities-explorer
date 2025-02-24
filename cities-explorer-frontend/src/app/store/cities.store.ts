@@ -20,7 +20,7 @@ const initialState: CitiesState = {
   },
   cityGuesserQuestion: null,
   cityGuesserQuestionLoading: false,
-  cityGuesserQuestionError: undefined,
+  cityGuesserQuestionError: null,
 };
 
 export const CitiesStore = signalStore(

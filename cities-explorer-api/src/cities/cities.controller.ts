@@ -7,7 +7,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { CitiesService } from './cities.service';
-import { City } from '../interfaces/city.interface';
+import { City, CityGuesserResponse } from '../interfaces/city.interface';
 import { GetCitiesQueryDto } from './dto/get-cities-query.dto';
 import { PaginatedResponse } from 'src/interfaces/common.interface';
 
@@ -22,7 +22,7 @@ export class CitiesController {
   }
 
   @Get('/city-guesser')
-  getRandomCityGame() {
+  getRandomCityGame(): CityGuesserResponse {
     return this.citiesService.getRandomCityForGame();
   }
 

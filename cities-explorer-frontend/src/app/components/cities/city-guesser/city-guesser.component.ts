@@ -16,14 +16,19 @@ import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedba
   ],
   template: `<div class="max-w-2xl mx-auto space-y-8">
     <app-back-button></app-back-button>
-    <h1 class="text-3xl font-bold text-gray-500 text-center">
+    <h1
+      class="text-3xl font-bold text-gray-500 text-center"
+      data-testid="title"
+    >
       Test your geography knowledge
     </h1>
 
     <div class="text-center animate-fade-in">
       <span class="inline-block px-4 py-2 bg-white rounded-full shadow-md">
         🔥 Current Streak:
-        <span class="font-bold text-blue-600">{{ streak }}</span>
+        <span class="font-bold text-blue-600" data-testid="streak">{{
+          streak
+        }}</span>
       </span>
     </div>
 
@@ -45,7 +50,10 @@ import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedba
               <span class="text-blue-500">🌍</span>
               <h3 class="font-semibold text-gray-700">Continent</h3>
             </div>
-            <p class="text-lg font-medium text-gray-900">
+            <p
+              class="text-lg font-medium text-gray-900"
+              data-testid="continent"
+            >
               {{ cityGuesserQuestion()?.clues?.continent }}
             </p>
           </div>
@@ -55,7 +63,10 @@ import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedba
               <span class="text-blue-500">👥</span>
               <h3 class="font-semibold text-gray-700">Population</h3>
             </div>
-            <p class="text-lg font-medium text-gray-900">
+            <p
+              class="text-lg font-medium text-gray-900"
+              data-testid="population"
+            >
               {{ cityGuesserQuestion()?.clues?.population | number }}
               inhabitants
             </p>
@@ -66,7 +77,7 @@ import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedba
               <span class="text-blue-500">🏛️</span>
               <h3 class="font-semibold text-gray-700">Founded</h3>
             </div>
-            <p class="text-lg font-medium text-gray-900">
+            <p class="text-lg font-medium text-gray-900" data-testid="founded">
               {{ cityGuesserQuestion()?.clues?.founded || 'Unknown' }}
             </p>
           </div>
@@ -76,15 +87,17 @@ import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedba
               <span class="text-blue-500">🏙️</span>
               <h3 class="font-semibold text-gray-700">Landmark</h3>
             </div>
-            <p class="text-lg font-medium text-gray-900">
-              {{ cityGuesserQuestion()?.clues?.landmarks }}
+            <p class="text-lg font-medium text-gray-900" data-testid="landmark">
+              {{ cityGuesserQuestion()?.clues?.landmark }}
             </p>
           </div>
         </div>
 
         <div class="grid grid-cols-3 gap-3 ">
           <button
+            data-testid
             *ngFor="let option of cityGuesserQuestion()?.options"
+            [attr.data-testid]="'city-option-' + option"
             (click)="answerCityGuesserQuestion(option)"
             [ngClass]="{
               'bg-green-200 border-green-400 text-grey-900':

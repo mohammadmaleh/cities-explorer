@@ -33,7 +33,7 @@ export interface CityGuesserQuestion {
     continent: string;
     population: string;
     founded: string;
-    landmarks: string[];
+    landmark: string;
   };
   options: string[];
   answer: string;
@@ -47,5 +47,5 @@ export interface CitiesState extends Pagination {
   filters: CityFilters;
   cityGuesserQuestion: CityGuesserQuestion | null;
   cityGuesserQuestionLoading: boolean;
-  cityGuesserQuestionError: string | undefined;
+  cityGuesserQuestionError: string | null;
 }

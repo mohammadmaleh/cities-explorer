@@ -1,5 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { City, CityRaw } from '../interfaces/city.interface';
+import {
+  City,
+  CityGuesserResponse,
+  CityRaw,
+} from '../interfaces/city.interface';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { GetCitiesQueryDto } from './dto/get-cities-query.dto';
@@ -77,7 +81,7 @@ export class CitiesService {
     return city;
   }
 
-  getRandomCityForGame() {
+  getRandomCityForGame(): CityGuesserResponse {
     const correctCity =
       this.cities[Math.floor(Math.random() * this.cities.length)];
     const options = [correctCity.name];
@@ -97,7 +101,7 @@ export class CitiesService {
         continent: correctCity.continent,
         population: correctCity.population,
         founded: correctCity.founded,
-        landmarks: correctCity.landmarks?.[0] || 'No famous landmarks',
+        landmark: correctCity.landmarks?.[0] || 'No famous landmarks',
       },
       options: options,
       answer: correctCity.name,

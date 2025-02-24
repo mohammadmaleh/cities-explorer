@@ -13,3 +13,14 @@ export interface CityRaw {
 export interface City extends CityRaw {
   id: number;
 }
+
+export interface CityGuesserResponse {
+  clues: {
+    continent: string;
+    population: string;
+    founded: string;
+    landmark: string;
+  };
+  options: string[];
+  answer: string;
+}
