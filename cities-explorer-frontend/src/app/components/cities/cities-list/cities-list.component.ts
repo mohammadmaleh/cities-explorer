@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CitiesStore } from '../../../store/cities.store';
 import { CityCardComponent } from '../city-card/city-card.component';
-import { PaginationComponent } from '../../pagination/pagination.component';
+import { PaginationComponent } from '../pagination/pagination.component';
 import { CitiesFiltersComponent } from '../cities-filters/cities-filters.component';
 import { Router } from '@angular/router';
 import { LoadingComponent } from '../../common/loading/loading.component';

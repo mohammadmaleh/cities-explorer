@@ -1,12 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { CitiesStore } from '../../store/cities.store';
+import { CitiesStore } from '../../../store/cities.store';
 
 @Component({
   selector: 'app-pagination',
   standalone: true,
-  template: `<div class="flex items-center justify-between">
+  template: `<div
+    class="flex items-center justify-between"
+    data-testid="pagination"
+  >
     <div class="flex gap-2">
       <button
+        data-testid="previous-button"
         (click)="previousPage()"
         [disabled]="store.page() === 1"
         class="px-4 py-2 rounded-lg disabled:opacity-50 bg-blue-500 text-white hover:bg-blue-600"
@@ -14,6 +18,7 @@ import { CitiesStore } from '../../store/cities.store';
         Previous
       </button>
       <button
+        data-testid="next-button"
         (click)="nextPage()"
         [disabled]="store.page() === totalPages"
         class="px-4 py-2 rounded-lg disabled:opacity-50 bg-blue-500 text-white hover:bg-blue-600"
@@ -22,7 +27,7 @@ import { CitiesStore } from '../../store/cities.store';
       </button>
     </div>
 
-    <span class="text-gray-600">
+    <span class="text-gray-600" data-testid="page-info">
       Page {{ store.page() }} of {{ totalPages }}
     </span>
   </div> `,
