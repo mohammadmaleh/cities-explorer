@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CitiesStore } from '../../../../store/cities.store';
+import { CitiesStore } from '../../../store/cities.store';
 import { CommonModule } from '@angular/common';
 import { LoadingComponent } from '../../common/loading/loading.component';
 import { BackButtonComponent } from '../../common/back-button/back-button.component';

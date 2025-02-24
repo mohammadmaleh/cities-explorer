@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CitiesStore } from '../../../../store/cities.store';
+import { CitiesStore } from '../../../store/cities.store';
 import { CityCardComponent } from '../city-card/city-card.component';
 import { PaginationComponent } from '../../pagination/pagination.component';
 import { CitiesFiltersComponent } from '../cities-filters/cities-filters.component';

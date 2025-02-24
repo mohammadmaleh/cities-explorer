@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CitiesStore } from '../../../store/cities.store';
+import { CitiesStore } from '../../store/cities.store';
 
 @Component({
   selector: 'app-pagination',

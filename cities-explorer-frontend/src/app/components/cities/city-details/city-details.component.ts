@@ -2,7 +2,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GoogleMap, MapMarker } from '@angular/google-maps';
-import { CitiesStore } from '../../../../store/cities.store';
+import { CitiesStore } from '../../../store/cities.store';
 import { LoadingComponent } from '../../common/loading/loading.component';
 import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedback.component';
 import { BackButtonComponent } from '../../common/back-button/back-button.component';

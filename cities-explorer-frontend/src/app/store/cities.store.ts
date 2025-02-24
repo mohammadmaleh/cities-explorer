@@ -1,7 +1,7 @@
 import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
-import { CitiesState, CityFilters } from '../app/interfaces/city.interface';
-import { CitiesService } from '../app/services/api/cities.service';
+import { CitiesState, CityFilters } from '../interfaces/city.interface';
+import { CitiesService } from '../services/api/cities.service';
 import { inject } from '@angular/core';
 import { finalize } from 'rxjs';
 
