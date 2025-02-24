@@ -1,4 +1,3 @@
-// city-details.component.ts
 import { Component, computed, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GoogleMap, MapMarker } from '@angular/google-maps';

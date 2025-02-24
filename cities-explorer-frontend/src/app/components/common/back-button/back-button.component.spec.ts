@@ -8,7 +8,6 @@ describe('BackButtonComponent', () => {
   let fixture: ComponentFixture<BackButtonComponent>;
   let router: Router;
 
-  // Helper method to get the button element
   const getButton = () =>
     fixture.nativeElement.querySelector('[data-testid="back-button"]');
 

@@ -30,7 +30,6 @@ import { CitiesStore } from '../../store/cities.store';
 export class PaginationComponent {
   store = inject(CitiesStore);
 
-  // Using a getter here to compute totalPages from signals
   get totalPages(): number {
     return Math.ceil(this.store.total() / this.store.limit());
   }
