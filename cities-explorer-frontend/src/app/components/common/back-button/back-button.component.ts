@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
     <button
       class="px-4 py-2 rounded-lg disabled:opacity-50 bg-blue-500 text-white hover:bg-blue-600 mb-4"
       (click)="handleGoBack()"
+      data-testid="back-button"
     >
       <span>Back</span>
     </button>

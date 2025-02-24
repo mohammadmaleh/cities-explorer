@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LayoutComponent } from './components/common/layout/layout.component';
 
@@ -8,6 +8,5 @@ import { LayoutComponent } from './components/common/layout/layout.component';
   template: `<app-layout>
     <router-outlet></router-outlet>
   </app-layout>`,
-  styleUrl: './app.component.scss',
 })
 export class AppComponent {}
