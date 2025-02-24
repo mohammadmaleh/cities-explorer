@@ -58,7 +58,7 @@ export class CitiesFiltersComponent implements OnInit {
   citiesStore = inject(CitiesStore);
 
   form = this.formBuilder.group({
-    searchTerm: ['', [Validators.maxLength(100)]],
+    searchTerm: ['', [Validators.maxLength(30)]],
     continent: [''],
     sortBy: [''],
   });
