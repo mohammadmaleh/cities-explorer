@@ -7,6 +7,9 @@ import {
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PaginatedResponse } from '../../interfaces/common.interface';
 import { Observable } from 'rxjs';
+import { APP_URL } from '.';
+
+export const CITIES_URL = `${APP_URL}/cities`;
 
 @Injectable({ providedIn: 'root' })
 export class CitiesService {
@@ -24,20 +27,15 @@ export class CitiesService {
         `${filters.sortBy.field}:${filters.sortBy.order}`
       );
 
-    return this.http.get<PaginatedResponse<City>>(
-      'http://localhost:3000/cities',
-      {
-        params,
-      }
-    );
+    return this.http.get<PaginatedResponse<City>>(CITIES_URL, {
+      params,
+    });
   }
   getCity(id: number): Observable<City> {
-    return this.http.get<City>(`http://localhost:3000/cities/${id}`);
+    return this.http.get<City>(`${CITIES_URL}/${id}`);
   }
 
   getGuessCityQuestion(): Observable<CityGuesserQuestion> {
-    return this.http.get<CityGuesserQuestion>(
-      'http://localhost:3000/cities/city-guesser'
-    );
+    return this.http.get<CityGuesserQuestion>(`${CITIES_URL}/city-guesser`);
   }
 }
