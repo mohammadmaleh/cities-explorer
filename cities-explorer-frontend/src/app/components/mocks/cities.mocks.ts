@@ -1,5 +1,8 @@
-export const cityMock = [
+import { City, CityGuesserQuestion } from '../../interfaces/city.interface';
+
+export const cityMock: City[] = [
   {
+    id: 1,
     name: 'Sydney',
     name_native: 'Sydney',
     country: 'Australia',
@@ -15,6 +18,7 @@ export const cityMock = [
     ],
   },
   {
+    id: 2,
     name: 'New York City',
     name_native: 'New York City',
     country: 'USA',
@@ -30,6 +34,7 @@ export const cityMock = [
     ],
   },
   {
+    id: 3,
     name: 'Madrid',
     name_native: 'Madrid',
     country: 'Spain',
@@ -41,6 +46,7 @@ export const cityMock = [
     landmarks: ['Royal Palace', 'Plaza Mayor', 'Plaza de Cibeles'],
   },
   {
+    id: 4,
     name: 'Moscow',
     name_native: 'Москва',
     country: 'Russia',
@@ -53,17 +59,13 @@ export const cityMock = [
   },
 ];
 
-export const cityGuesserQuestionMock = {
+export const cityGuesserQuestionMock: CityGuesserQuestion = {
   clues: {
     continent: 'Europe',
     population: '8419000',
     founded: '1624',
-    landmarks: [
-      'Chrysler Building',
-      'Brooklyn Bridge',
-      'Madison Square Garden',
-    ],
-    options: ['Paris', 'London', 'Rome'],
-    answer: 'Paris',
+    landmark: 'Chrysler Building',
   },
+  options: ['Paris', 'London', 'Rome'],
+  answer: 'Paris',
 };
