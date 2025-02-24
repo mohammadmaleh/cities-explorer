@@ -13,19 +13,19 @@ import { CitiesStore } from '../../../store/cities.store';
   selector: 'app-cities-filters',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
-  template: ` <form [formGroup]="form" class="mb-12 space-y-6">
+  template: `<form [formGroup]="form" class="mb-6 space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <input
           formControlName="searchTerm"
           placeholder="Search city or country"
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
+          class="w-full px-4 py-3  border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
         />
       </div>
       <div>
         <select
           formControlName="continent"
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+          class="w-full px-4 py-3  border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
         >
           <option value="">All Continents</option>
           <option
@@ -39,7 +39,7 @@ import { CitiesStore } from '../../../store/cities.store';
       <div>
         <select
           formControlName="sortBy"
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+          class="w-full px-4 py-3 l border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
         >
           <option value="">Sort By</option>
           <option
@@ -51,7 +51,7 @@ import { CitiesStore } from '../../../store/cities.store';
         </select>
       </div>
     </div>
-  </form>`,
+  </form> `,
 })
 export class CitiesFiltersComponent implements OnInit {
   formBuilder = inject(FormBuilder);

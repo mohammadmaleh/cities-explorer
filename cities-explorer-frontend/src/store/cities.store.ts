@@ -31,6 +31,7 @@ export const CitiesStore = signalStore(
     setFilter(filter: CityFilters) {
       patchState(store, {
         filters: filter,
+        page: 1,
       });
       this.loadCities();
     },

@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { LayoutComponent } from './components/common/layout/layout.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  template: ` <div
-    class="min-h-screen bg-gradient-to-b from-blue-50 to-white p-4 sm:p-8"
-  >
-    <router-outlet> </router-outlet>
-  </div>`,
+  imports: [RouterOutlet, LayoutComponent],
+  template: `<app-layout>
+    <router-outlet></router-outlet>
+  </app-layout>`,
   styleUrl: './app.component.scss',
 })
 export class AppComponent {}

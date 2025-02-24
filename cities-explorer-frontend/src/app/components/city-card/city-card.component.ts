@@ -1,58 +1,41 @@
 import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { City } from '../../models/city.interface';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-city-card',
+  imports: [CommonModule],
   standalone: true,
-  template: ` <article
-    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+  template: `<article
+    class="group bg-white  shadow-lg hover:shadow-2xl min-h-[250px] transition-all duration-300 overflow-hidden cursor-pointer"
   >
     <div class="p-6 space-y-4">
       <h3 class="text-2xl font-bold text-gray-900">
-        <div class=" cursor-pointer">
+        <div class="cursor-pointer">
           {{ city.name }} ({{ city.name_native }})
           <span class="text-lg text-gray-600">• {{ city.country }}</span>
         </div>
       </h3>
 
       <div class="flex items-center space-x-2 text-gray-500">
-        <svg
-          class="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-          />
-        </svg>
+        <span class="text-lg">👥</span>
         <span class="text-lg">{{ city.population }}</span>
       </div>
 
       <div class="border-t border-gray-100 pt-4">
-        <div class="flex flex-wrap gap-2">
-          @for (landmark of city.landmarks; track landmark) {
-          <span
-            class="flex items-center px-3 py-1 bg-blue-50 text-blue-800 rounded-full text-sm font-medium"
-          >
-            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fill-rule="evenodd"
-                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            {{ landmark }}
-          </span>
-          }
+        <div class="flex flex-col gap-2">
+          <ng-container *ngFor="let landmark of city.landmarks">
+            <span
+              class="flex items-center px-3 py-1 bg-blue-50 text-blue-800  text-sm font-medium w-fit"
+            >
+              <span class="mr-1">📍</span>
+              {{ landmark }}
+            </span>
+          </ng-container>
         </div>
       </div>
     </div>
-  </article>`,
+  </article> `,
 })
 export class CityCardComponent {
   @Input({ required: true }) city!: City;

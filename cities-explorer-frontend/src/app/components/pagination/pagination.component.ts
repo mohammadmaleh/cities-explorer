@@ -4,29 +4,27 @@ import { CitiesStore } from '../../../store/cities.store';
 @Component({
   selector: 'app-pagination',
   standalone: true,
-  template: `
-    <div class="flex items-center justify-between">
-      <button
-        (click)="previousPage()"
-        [disabled]="store.page() === 1"
-        class="px-4 py-2 rounded-lg disabled:opacity-50 bg-blue-500 text-white hover:bg-blue-600"
-      >
-        Previous
-      </button>
+  template: `<div class="flex items-center justify-between">
+    <button
+      (click)="previousPage()"
+      [disabled]="store.page() === 1"
+      class="px-4 py-2 rounded-lg disabled:opacity-50 bg-blue-500 text-white hover:bg-blue-600"
+    >
+      Previous
+    </button>
 
-      <span class="text-gray-600">
-        Page {{ store.page() }} of {{ totalPages }}
-      </span>
+    <span class="text-gray-600">
+      Page {{ store.page() }} of {{ totalPages }}
+    </span>
 
-      <button
-        (click)="nextPage()"
-        [disabled]="store.page() === totalPages"
-        class="px-4 py-2 rounded-lg disabled:opacity-50 bg-blue-500 text-white hover:bg-blue-600"
-      >
-        Next
-      </button>
-    </div>
-  `,
+    <button
+      (click)="nextPage()"
+      [disabled]="store.page() === totalPages"
+      class="px-4 py-2 rounded-lg disabled:opacity-50 bg-blue-500 text-white hover:bg-blue-600"
+    >
+      Next
+    </button>
+  </div> `,
 })
 export class PaginationComponent {
   store = inject(CitiesStore);
