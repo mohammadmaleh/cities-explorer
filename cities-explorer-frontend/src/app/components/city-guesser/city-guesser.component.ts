@@ -36,6 +36,9 @@ import { ErrorFeedbackComponent } from '../common/error-feedback/error-feedback.
         <app-error-feedback [error]="error() || ''" />
       </ng-container>
       <ng-template #questionContent>
+        <h2 class="text-3xl font-bold text-gray-500 text-center">
+          Guess the city:
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="p-6 bg-white  shadow-sm space-y-2">
             <div class="flex items-center gap-2">
@@ -84,16 +87,17 @@ import { ErrorFeedbackComponent } from '../common/error-feedback/error-feedback.
             *ngFor="let option of cityGuesserQuestion()?.options"
             (click)="answerCityGuesserQuestion(option)"
             [ngClass]="{
-              'bg-green-200 border-green-400':
+              'bg-green-200 border-green-400 text-grey-900':
                 showAnswer && option === cityGuesserQuestion()?.answer,
-              'bg-red-200 border-red-400':
+              'bg-red-200 border-red-400 text-grey-900':
                 showAnswer && option !== cityGuesserQuestion()?.answer,
-              'bg-blue-400 border-blue-400': !showAnswer
+              'bg-blue-400 border-blue-400 hover:bg-blue-500 text-white':
+                !showAnswer
             }"
             class="p-4 text-center rounded-xl  transition-all duration-200 shadow-sm hover:shadow-md border-2 border-gray-100 cursor-pointer"
             [disabled]="!cityGuesserQuestion"
           >
-            <span class="text-lg font-medium text-white">{{ option }}</span>
+            <span class="text-lg font-medium ">{{ option }}</span>
           </button>
         </div>
       </ng-template>
