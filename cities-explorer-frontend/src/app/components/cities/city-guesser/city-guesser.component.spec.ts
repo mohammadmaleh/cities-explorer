@@ -164,7 +164,6 @@ describe('<city-guesser />', () => {
       fixture.detectChanges();
 
       expect(component.showAnswer).toBeTrue();
-      // The streak should reset to 0 on a wrong answer
       expect(component.streak).toBe(0);
 
       tick(1000);

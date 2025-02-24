@@ -43,7 +43,7 @@ import { CommonModule } from '@angular/common';
           <div class="p-6 bg-blue-50">
             <div class="text-sm text-blue-600">Population</div>
             <div class="text-3xl font-bold text-gray-900">
-              {{ city()?.population }}
+              {{ city()?.population | number }}
             </div>
           </div>
           <div class="p-6 bg-blue-50">
