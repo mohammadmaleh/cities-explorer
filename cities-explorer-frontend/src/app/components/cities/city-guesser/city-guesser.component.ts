@@ -87,7 +87,6 @@ import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedba
     <div class="grid grid-cols-3 gap-3">
       @for (option of cityGuesserQuestion()?.options; track option) {
       <button
-        data-testid
         [attr.data-testid]="'city-option-' + option"
         (click)="answerCityGuesserQuestion(option)"
         [ngClass]="{

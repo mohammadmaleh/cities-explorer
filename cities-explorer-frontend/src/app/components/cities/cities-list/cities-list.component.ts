@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cities-list',
+  standalone: true,
   imports: [
     CityCardComponent,
     PaginationComponent,

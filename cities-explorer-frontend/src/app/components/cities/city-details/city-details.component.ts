@@ -29,26 +29,32 @@ import { CommonModule } from '@angular/common';
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <div class="space-y-8">
         <div class="space-y-4">
-          <h1 class="text-5xl font-bold text-gray-900">
+          <h1 class="text-5xl font-bold text-gray-900" data-testid="city-name">
             {{ city()?.name }}
           </h1>
           <div class="flex items-center space-x-2 text-2xl text-gray-600">
-            <span>{{ city()?.country }}</span>
+            <span data-testid="city-country">{{ city()?.country }}</span>
             <span class="text-gray-400">•</span>
-            <span>{{ city()?.continent }}</span>
+            <span data-testid="city-continent">{{ city()?.continent }}</span>
           </div>
         </div>
 
         <div class="grid grid-cols-2 gap-4">
           <div class="p-6 bg-blue-50">
             <div class="text-sm text-blue-600">Population</div>
-            <div class="text-3xl font-bold text-gray-900">
+            <div
+              class="text-3xl font-bold text-gray-900"
+              data-testid="city-population"
+            >
               {{ city()?.population | number }}
             </div>
           </div>
           <div class="p-6 bg-blue-50">
             <div class="text-sm text-blue-600">Founded</div>
-            <div class="text-3xl font-bold text-gray-900">
+            <div
+              class="text-3xl font-bold text-gray-900"
+              data-testid="city-founded"
+            >
               {{ city()?.founded }}
             </div>
           </div>
@@ -62,14 +68,21 @@ import { CommonModule } from '@angular/common';
               class="flex items-center p-4 bg-white shadow-sm border border-gray-100"
             >
               <span class="text-2xl mr-3">📍</span>
-              <span class="text-lg text-gray-700">{{ landmark }}</span>
+              <span
+                class="text-lg text-gray-700"
+                [attr.data-testid]="'city-landmark-' + landmark"
+                >{{ landmark }}</span
+              >
             </div>
           </div>
           }
         </div>
       </div>
 
-      <div class="h-[600px] overflow-hidden shadow-xl border border-gray-200">
+      <div
+        class="h-[600px] overflow-hidden shadow-xl border border-gray-200"
+        data-testid="city-map"
+      >
         <google-map
           [center]="{ lat: lat(), lng: lng() }"
           [zoom]="12"
