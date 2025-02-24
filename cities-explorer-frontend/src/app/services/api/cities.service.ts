@@ -3,9 +3,9 @@ import {
   City,
   CityFilters,
   CityGuesserQuestion,
-} from '../../models/city.interface';
+} from '../../interfaces/city.interface';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { PaginatedResponse } from '../../models/common.interface';
+import { PaginatedResponse } from '../../interfaces/common.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

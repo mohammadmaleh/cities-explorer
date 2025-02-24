@@ -5,7 +5,7 @@ import {
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { CityFilters } from '../../../models/city.interface';
+import { CityFilters } from '../../../interfaces/city.interface';
 import { CommonModule } from '@angular/common';
 import { CitiesStore } from '../../../../store/cities.store';
 
