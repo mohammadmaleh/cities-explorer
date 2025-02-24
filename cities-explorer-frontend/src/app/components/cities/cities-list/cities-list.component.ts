@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { CitiesStore } from '../../../store/cities.store';
+import { CitiesStore } from '../../../../store/cities.store';
 import { CityCardComponent } from '../city-card/city-card.component';
-import { PaginationComponent } from '../pagination/pagination.component';
+import { PaginationComponent } from '../../pagination/pagination.component';
 import { CitiesFiltersComponent } from '../cities-filters/cities-filters.component';
 import { Router } from '@angular/router';
-import { LoadingComponent } from '../common/loading/loading.component';
-import { ErrorFeedbackComponent } from '../common/error-feedback/error-feedback.component';
+import { LoadingComponent } from '../../common/loading/loading.component';
+import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedback.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
 
     <ng-template #loadedContent>
       <ng-container *ngIf="store.error(); else cityGrid">
-        <app-error-feedback [error]="store.error()"></app-error-feedback>
+        <app-error-feedback [error]="store.error() || ''"></app-error-feedback>
       </ng-container>
 
       <ng-template #cityGrid>

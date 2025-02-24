@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { City } from '../../models/city.interface';
+import { City } from '../../../models/city.interface';
 import { CommonModule } from '@angular/common';
 
 @Component({

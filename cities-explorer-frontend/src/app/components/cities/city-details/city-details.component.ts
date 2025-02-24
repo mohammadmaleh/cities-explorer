@@ -2,10 +2,10 @@
 import { Component, computed, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GoogleMap, MapMarker } from '@angular/google-maps';
-import { CitiesStore } from '../../../store/cities.store';
-import { LoadingComponent } from '../common/loading/loading.component';
-import { ErrorFeedbackComponent } from '../common/error-feedback/error-feedback.component';
-import { BackButtonComponent } from '../common/back-button/back-button.component';
+import { CitiesStore } from '../../../../store/cities.store';
+import { LoadingComponent } from '../../common/loading/loading.component';
+import { ErrorFeedbackComponent } from '../../common/error-feedback/error-feedback.component';
+import { BackButtonComponent } from '../../common/back-button/back-button.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -26,7 +26,7 @@ import { CommonModule } from '@angular/common';
     </ng-container>
     <ng-template #loadedDetails>
       <ng-container *ngIf="error(); else detailsContent">
-        <app-error-feedback [error]="error()"></app-error-feedback>
+        <app-error-feedback [error]="error() || ''"></app-error-feedback>
       </ng-container>
       <ng-template #detailsContent>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
