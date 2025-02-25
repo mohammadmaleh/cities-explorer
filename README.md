@@ -108,3 +108,5 @@ http://localhost:3000/api
 - Enhanced Google Maps Integration: Improve map features (currently, API key is not included for security reasons).
 
 - Database Integration: Store city data in a database and implement a search feature for better scalability.
+
+- having a bread crumb instead of back button.
