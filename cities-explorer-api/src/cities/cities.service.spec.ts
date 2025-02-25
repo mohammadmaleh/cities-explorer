@@ -14,7 +14,6 @@ describe('CitiesService', () => {
   let service: CitiesService;
 
   const citiesMockRaw = citiesMock.map(({ id, ...rest }) => {
-    console.log(id);
     return rest;
   });
 

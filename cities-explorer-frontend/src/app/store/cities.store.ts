@@ -117,8 +117,6 @@ export const CitiesStore = signalStore(
         )
         .subscribe({
           next: (question) => {
-            console.log({ question });
-
             return patchState(store, { cityGuesserQuestion: question });
           },
           error: (error) =>
