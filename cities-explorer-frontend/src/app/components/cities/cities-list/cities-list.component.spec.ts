@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CitiesListComponent } from './cities-list.component';
 import { CitiesStore } from '../../../store/cities.store';
 import { Router } from '@angular/router';
-import { cityMock } from '../../mocks/cities.mocks';
+import { cityMock } from '../../../mocks/cities.mocks';
 
 describe('<cities-list />', () => {
   let component: CitiesListComponent;

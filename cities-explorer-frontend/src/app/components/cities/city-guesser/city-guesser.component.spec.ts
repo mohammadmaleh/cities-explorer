@@ -6,7 +6,7 @@ import {
 } from '@angular/core/testing';
 import { CityGuesserComponent } from './city-guesser.component';
 import { CitiesStore } from '../../../store/cities.store';
-import { cityGuesserQuestionMock } from '../../mocks/cities.mocks';
+import { cityGuesserQuestionMock } from '../../../mocks/cities.mocks';
 
 describe('<city-guesser />', () => {
   let component: CityGuesserComponent;

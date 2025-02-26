@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CityCardComponent } from './city-card.component';
-import { cityMock } from '../../mocks/cities.mocks';
+import { cityMock } from '../../../mocks/cities.mocks';
 
 describe('<city-card />', () => {
   let component: CityCardComponent;

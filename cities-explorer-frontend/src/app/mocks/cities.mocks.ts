@@ -1,4 +1,4 @@
-import { City, CityGuesserQuestion } from '../../interfaces/city.interface';
+import { City, CityGuesserQuestion } from '../interfaces/city.interface';
 
 export const cityMock: City[] = [
   {
